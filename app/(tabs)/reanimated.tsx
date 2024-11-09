@@ -1,11 +1,13 @@
-import { View, Text } from "react-native";
 import React from "react";
+import SharedValue from "@/components/reanimated/SharedValue";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Button, TouchableOpacity } from "react-native";
 
 const Reanimated = () => {
   return (
-    <View>
-      <Text>reanimated</Text>
-    </View>
+    <SafeAreaView>
+      <SharedValue />
+    </SafeAreaView>
   );
 };
 
