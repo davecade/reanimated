@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import Animated, {
   Easing,
@@ -9,7 +9,9 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-const AnimationFunction = () => {
+const AnimatedInput = Animated.createAnimatedComponent(TextInput);
+
+const CustomAnimatedComponents = () => {
   const width = useSharedValue(100);
   const height = useSharedValue(100);
   const backgroundColor = useSharedValue("red");
@@ -18,7 +20,6 @@ const AnimationFunction = () => {
     const randomWidth = Math.random() * 300;
     const randomHeight = Math.random() * 300;
 
-    // using withSpring to slowly animate the change
     width.value = withSpring(randomWidth);
     height.value = withSpring(randomHeight);
     backgroundColor.value =
@@ -88,12 +89,13 @@ const AnimationFunction = () => {
 
   return (
     <View>
+      <AnimatedInput />
       <Animated.View style={animatedStyles}></Animated.View>
       <Button title="Animate" onPress={onAnimateWithDelay} />
     </View>
   );
 };
 
-export default AnimationFunction;
+export default CustomAnimatedComponents;
 
 const styles = StyleSheet.create({});
